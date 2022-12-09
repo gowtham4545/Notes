@@ -23,7 +23,7 @@
             .........
 
 + For block quotes > tag is used <pre>> text....</pre>
->   ## kgjgjgj
+>   ## Block
 + For nested block quotes >> tag is used <pre>>> text....</pre>
 > ## heading
 >> ##line 1<br>
@@ -49,5 +49,5 @@
 + To insert a image<pre>``  ![text](link,"alt") ``</pre>
 ![hi](link,"alt")
 
-+ To insert an email or url,<pre>< www.url.com/.../.../... > or < email.com ></pre>
-<www.google.com/>
++ To insert an email or url,<pre> www.url.com/.../.../...  or  www.email.com </pre>
+www.google.com/
