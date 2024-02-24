@@ -51,3 +51,6 @@
 
 + To insert an email or url,<pre> www.url.com/.../.../...  or  www.email.com </pre>
 www.google.com/
+
+
+For more info visit [github documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
