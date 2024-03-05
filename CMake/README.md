@@ -8,12 +8,15 @@
 ### Building
 
 ```bash
+# Build configuration setup
 cmake -S <source path> -B <build path>
 ```
 
-### Run Project
-
+Build directory structure:
+![](./image.png)
 ```bash
 # In build folder, 
-$ make
+$ make  # This command runs the makefile
 ```
+
+### Run Project
