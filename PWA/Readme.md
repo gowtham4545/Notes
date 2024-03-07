@@ -1,7 +1,9 @@
 # Progressive Web Apps ( PWA )
 
 <pre>
-A progressive web application (PWA), or progressive web app, is a type of application software delivered through the web, built using common web technologies including HTML, CSS, JavaScript, and WebAssembly. It is intended to work on any platform with a standards-compliant browser, including desktop and mobile devices.
+A progressive web application (PWA), or progressive web app, is a type of application software delivered through the web, 
+built using common web technologies including HTML, CSS, JavaScript, and WebAssembly. It is intended to work on any 
+platform with a standards-compliant browser, including desktop and mobile devices.
 </pre>
 
 ## Installation
@@ -61,8 +63,8 @@ npm install serve
 + **Enabling Push Notifications**
     
     <pre>
-    <p>To enable push notifications, you’ll need to use a service like Firebase Cloud Messaging (FCM) or OneSignal. <br>These services provide the infrastructure for sending and receiving push notifications in your PWA.</p>
-    <p>Integrate the service of your choice into your React app and follow their documentation to enable push notifications.</p>
+    To enable push notifications, you’ll need to use a service like Firebase Cloud Messaging (FCM) or OneSignal. <br>These services provide the infrastructure for sending and receiving push notifications in your PWA.
+    <br>Integrate the service of your choice into your React app and follow their documentation to enable push notifications.
     </pre>
     
 + **Manifest.json**
