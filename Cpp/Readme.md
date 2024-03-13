@@ -99,3 +99,19 @@ Value of varB would not anymore compile time. While statement with varC will thr
 
 #endif
 ```
+
+#### Format-Style `print()`
+
+```cpp
+#include<format>
+using namespace std;
+
+constexp void print(const string_view str_fmt, auto&&... args){
+    fputs(vformat(str_fmt, make_format_args(args...)).cstr(), stdout);
+}
+
+int main(){
+    int i=5;
+    print("{}\n",i);
+}
+```
