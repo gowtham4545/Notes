@@ -39,6 +39,8 @@ View more about this [here](./smart_pointer.md)
 } 
 </pre>
 
+
+
 ```cpp
 int main(){
     int i=0;
@@ -100,18 +102,19 @@ Value of varB would not anymore compile time. While statement with varC will thr
 #endif
 ```
 
-#### Format-Style `print()`
+**Format-Style `print()`**
 
 ```cpp
 #include<format>
 using namespace std;
 
-constexp void print(const string_view str_fmt, auto&&... args){
+constexpr void print(const string_view str_fmt, auto&&... args){
     fputs(vformat(str_fmt, make_format_args(args...)).cstr(), stdout);
 }
 
 int main(){
     int i=5;
-    print("{}\n",i);
+    print("{}\n",i); // This works exactly like printf( format( "{}\n", i ));
 }
 ```
+
