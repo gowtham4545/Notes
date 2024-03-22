@@ -102,7 +102,7 @@ Value of varB would not anymore compile time. While statement with varC will thr
 #endif
 ```
 
-**Format-Style `print()`**
+#### Format-Style `print()`
 
 ```cpp
 #include<format>
@@ -114,7 +114,85 @@ constexpr void print(const string_view str_fmt, auto&&... args){
 
 int main(){
     int i=5;
-    print("{}\n",i); // This works exactly like printf( format( "{}\n", i ));
+    print("The value is {}\n",i); // This works exactly like printf( format( "{}\n", i ));
 }
 ```
+
+Output:
+```bash
+The value is 5
+```
+
+
+#### Concurrency
+
+- **Sleeping**
+    
+    ```cpp
+    // in windows
+    #include<windows.h>
+    int main(){
+        sleep(5);
+    }
+
+    // in unix
+    #include<thread>
+    using std::this_thread::sleep_for;
+    using std::this_thread::sleep_until;
+
+    int main(){
+        sleep_for(5s); // To wait for certain duration
+        sleep_until(std::chrono::steady_clock::now()+2s); // To wait until certain point of time.
+        return 0;
+    }
+    ```
+    
+- **Threading**
+    
+    ```cpp
+    #include<thread>
+    using thread;
+
+    void thread_func(const int n){
+        using millis=std::chrono::milliseconds;
+        std::this_thread::sleep_for(millis(ms))
+    }
+
+    int main(){
+        thread t1(thread_func,1);
+        thread t2(thread_func,2);
+        t1.detach(); // detach runs the thread asyncronously
+        t2.detach();
+
+        t1.join(); // join function waits for other threads to be executed before terminating...
+        return 0;
+    }
+    ```
+
+- **Chrono**
+    
+    ```cpp
+    #include<chrono>
+    using std::chrono;
+
+    int main(){
+        auto t=chrono::system_clock::now(); // gives the current time
+        return 0;
+    }
+    ```
+        
+- **Mutex**
+    
+    ```cpp
+    #include<mutex>
+
+    std::mutex mut {};
+
+    int main(){
+        std::lock_guard<std::mutex> lock { mut }; // A lock that keeps hold of a global mutex object and coordinate threads.
+        return 0;
+    }
+    ```
+    
+    other things to explore : [async](), [atomic variables](), [producer-consumer](), etc..
 
