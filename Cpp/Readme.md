@@ -13,6 +13,7 @@ class Animal{
     ~Animal();  // destructor
 }
 ```
+<hr>
 
 #### Explicit conversion
 
@@ -24,11 +25,15 @@ int main(){
 }
 ```
 
+<hr>
+
 #### Smart pointers
 
 Smart Pointers are used to help ensure that programs are free of `memory and resource leaks` and are `exception-safe`.
 
 View more about this [here](./smart_pointer.md)
+
+<hr>
 
 #### Lambda functions
 
@@ -50,6 +55,8 @@ int main(){
 }
 ```
 
+<hr>
+
 #### Constants
 
 `const` and `constexpr` both are used for declaring constant variables. But `const` keyword is not completely pure constant.
@@ -69,6 +76,8 @@ int main()
 ```
 **Explanation**:
 Value of varB would not anymore compile time. While statement with varC will throw compilation error. The reason is constexpr will always accept a strictly compile-time value.
+
+<hr>
 
 #### Conditional compilation
 
@@ -102,6 +111,8 @@ Value of varB would not anymore compile time. While statement with varC will thr
 #endif
 ```
 
+<hr>
+
 #### Format-Style `print()`
 
 ```cpp
@@ -123,6 +134,7 @@ Output:
 The value is 5
 ```
 
+<hr>
 
 #### Concurrency
 
@@ -146,7 +158,7 @@ The value is 5
         return 0;
     }
     ```
-    
+
 - **Threading**
     
     ```cpp
@@ -196,3 +208,88 @@ The value is 5
     
     other things to explore : [async](), [atomic variables](), [producer-consumer](), etc..
 
+<hr>
+
+#### Name Mangling
+
+Since C++ supports function overloading, additional information has to be added to function names (called **Name mangling**) to avoid conflicts in binary code. 
+
+
+```cpp
+int f(void) { return 1; }
+ 
+int f(int) { return 0; }
+ 
+void g(void) { int i = f(), j = f(0); }
+```
+
+Some C++ compilers may mangle the above names to the following,  
+
+
+```cpp
+int __f_v(void) { return 1; }
+ 
+int __f_i(int) { return 0; }
+ 
+void __g_v(void) { int i = __f_v(), j = __f_i(0); }
+```
+
+
+<br>
+<br>
+
+##### **Handling C symbols when linking from C++**
+
+
+<pre>
+Note: C does not support function overloading, So, when we link a C code in C++, we have to make sure that name of a symbol is not changed.
+</pre>
+
+In C, names may not be mangled as it doesn’t support function overloading. So how to make sure that name of a symbol is not changed when we link a C code in C++.
+
+```cpp
+int printf(const char* format, ...);
+ 
+int main()
+{
+    printf("Hello...");
+    return 0;
+}
+```
+
+
+<pre>
+Compiler Error:
+
+In function `main’:
+f84cc4ebaf5b87bb8c6b97bc54245486.cpp:(.text+0xf): undefined reference to `printf(char const*, …)’
+collect2: error: ld returned 1 exit status
+</pre>
+
+When some code is put in the extern “C” block, the C++ compiler ensures that the function names are un-mangled – that the compiler emits a binary file with their names unchanged, as a C compiler would do.
+
+```cpp
+extern "C" {
+int printf(const char* format, ...);
+}
+ 
+int main()
+{
+    printf("Hello...");
+    return 0;
+}
+```
+
+Therefore, all C style header files (stdio.h, string.h, etc) have their declarations in the extern “C” block.
+
+
+```cpp
+#ifdef __cplusplus
+extern "C" {
+#endif
+// Declarations of this file
+#ifdef __cplusplus
+}
+#endif
+
+```
