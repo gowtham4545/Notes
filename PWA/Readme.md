@@ -81,6 +81,7 @@ npm install serve
   
 
 ## References
+- [React.Org](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 - [Google](https://web.dev/explore/progressive-web-apps)
 - [Web Dev Tutorials](https://web.dev/learn/pwa/)
