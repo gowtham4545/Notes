@@ -21,4 +21,5 @@ my personal cheat sheats
 1. [Github](https://github.com/donnemartin/system-design-primer) 
 2. [GFG](https://www.geeksforgeeks.org/complete-roadmap-to-learn-system-design/)
 
+[Core Subjects](https://github.com/G33kzD3n/Catalogue)
 </i>
