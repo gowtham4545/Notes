@@ -293,3 +293,6 @@ extern "C" {
 #endif
 
 ```
+
+#### [GDB Debugger](gdb.md)
+The GNU Debugger (GDB) is a popular, free, and open-source debugger for C and C++ programs, which is widely used in Unix-like systems
