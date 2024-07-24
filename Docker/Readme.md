@@ -82,10 +82,9 @@
     ```
 
   + Eg:
-
-        ```bash
-                docker run -v /opt/datadir:/var/lib/mysql mysql
-        ```
+    ```bash
+    docker run -v /opt/datadir:/var/lib/mysql mysql
+    ```
 
 + Fetching all the details of a conatiner (in json format)
 
