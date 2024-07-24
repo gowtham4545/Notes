@@ -4,19 +4,19 @@
 
 ## Commands
 
-+ shows currently running containers
++ Fetching currently running containers
 
     ```bash
     docker ps
     ```
 
-+ shows all containers
++ Fetching all containers
 
     ```bash
     docker ps -a
     ```
 
-+ to build the image with a tag
++ To build the image with a tag
 
     ```bash
     docker build -t <tag> <loc>
@@ -25,7 +25,7 @@
   + -t indicates tag
   + < loc > is the location of dockerfile
 
-+ to run the image
++ To run the image
 
     ```bash
     docker run -p <lport>:<cport> <tag>
@@ -33,13 +33,85 @@
 
   + -p indicates linking the containers' port to local port
 
-+ to pull the in-built image
++ To pull the in-built image
 
     ```bash
     docker pull <image-name>
     ```
 
-  + -p indicates linking the containers' port to local port
++ To stop running container
+
+    ```bash
+    docker stop <name>
+    ```
+
++ To remove container
+
+    ```bash
+    docker rm <name>
+    ```
+
++ To remove image
+
+    ```bash
+    docker rmi <image-name>
+    ```
+
++ To run in background (as a daemon)
+
+    ```bash
+    docker run -d <name>
+    ```
+
++ To connect  to the running container
+
+    ```bash
+    docker attach <first_few_digits_of_id>
+    ```
+
++ Interactive & Terminal attach for taking inputs
+
+    ```bash
+    docker run -it <name>
+    ```
+
++ Mapping the containers' volume to local repo as a backup
+
+    ```bash
+    docker run -v <ldir>:<volume> <name>
+    ```
+
+  + Eg:
+
+        ```bash
+                docker run -v /opt/datadir:/var/lib/mysql mysql
+        ```
+
++ Fetching all the details of a conatiner (in json format)
+
+    ```bash
+    docker inspect <name>
+    ```
+
++ textTo see the logs of background running containers
+
+    ```bash
+    docker logs <name>
+    ```
+
++ To set environmental variables
+
+    ```bash
+    docker run -e <variable>=<value> <name>
+    ```
+
++ Linking other applications
+
+    ```bash
+    docker run --link <name>:<name> <app-name>
+    #   (or)
+    docker run --link=<name> <app-name>
+    ```
 
 ## Dockerfile
 
@@ -67,6 +139,9 @@ CMD ["./main"]
 
 ```
 
-<pre>
-ENTRYPOINT & CMD --> used for commands; entrypoint is startup command & cmd is appended to it if no command is given in command-line (like default)
+<pre>ENTRYPOINT & CMD --> used for commands; entrypoint is startup command & cmd is appended to it if no command is given in<br>command-line (like default)
 </pre>
+
+## Docker Compose
+
+<pre>Docker Compose is a tool for defining and running multi-container applications. It is the key to unlocking a streamlined<br>and efficient development and deployment experience.</pre>
