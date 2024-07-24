@@ -149,9 +149,9 @@
 
 **By default 3 networks**
 
-+ *Bridge:* ports are attached to default bridge network (usually 172.17.00 series).
-+ *None:* no port mapping.
-+ *Host:* no need of mapping; ports are directly attached to the Host network.
+1. *Bridge:* ports are attached to default bridge network (usually 172.17.00 series).
+2. *None:* no port mapping.
+3. *Host:* no need of mapping; ports are directly attached to the Host network.
 
 + Specifying the network for a container
 
@@ -171,7 +171,7 @@
     docker network ls
     ```
 
-> Docker has a built-in embedded DNS server that maps the containers' name to its ip address
+>> Docker has a built-in embedded DNS server that maps the containers' name to its ip address
 
 --------------
 
