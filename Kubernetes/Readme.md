@@ -24,6 +24,12 @@
     kubectl get all
     ```
 
++ fetching pods with more details(including ip addresses)
+
+  ```bash
+  kubectl get pods -o wide
+  ```
+
 + Running a pod
 
     ```bash
@@ -163,3 +169,5 @@ spec:
 ![](./architecture.png)
 
 ![](./structure.png)
+
+![](./services.webp)
