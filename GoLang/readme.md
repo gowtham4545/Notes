@@ -87,8 +87,84 @@ func main() {
 
 ### Encapsulation
 
-<pre>Encapsulation in Go, as discussed in the course, is about bundling the data (fields) and methods
+<pre>Encapsulation in Go, is about bundling the data (fields) and methods
 (functions) that operate on the data into a single unit, typically a struct. Here are the key points:</pre>
 
 - **Private Fields:** *Fields in a struct can be made private by starting their names with a lowercase letter. This restricts access to these fields from outside the struct, ensuring that they can only be modified through methods provided by the struct.*
 - **Public Methods:** *Methods that operate on the struct's data can be made public by starting their names with an uppercase letter. These methods provide controlled access to the private fields, maintaining the integrity of the data.*
+
+### Abstraction
+
+<pre>Abstraction in Go, is achieved through interfaces and the struct types. Interfaces provide a way to define
+a contract without specifying the exact implementation, allowing different types to implement the same
+interface in various ways.</pre>
+
+```go
+package main
+
+import "fmt"
+
+// Define an interface for an abstract behavior
+type Shape interface {
+    Area() float64
+}
+
+// Define a struct for Circle
+type Circle struct {
+    Radius float64
+}
+
+// Implement the Area method for Circle
+func (c Circle) Area() float64 {
+    return 3.14 * c.Radius * c.Radius
+}
+
+// Define a struct for Rectangle
+type Rectangle struct {
+    Width, Height float64
+}
+
+// Implement the Area method for Rectangle
+func (r Rectangle) Area() float64 {
+    return r.Width * r.Height
+}
+
+func main() {
+    // Create instances of Circle and Rectangle
+    c := Circle{Radius: 5}
+    r := Rectangle{Width: 4, Height: 6}
+    
+    // Use the Shape interface to access Area method
+    shapes := []Shape{c, r}
+    for _, shape := range shapes {
+        fmt.Println(shape.Area())
+    }
+}
+
+```
+
+### Polymorphism
+
+<pre>Go achieves polymorphism through interfaces. An interface type specifies a contract that other
+types can implement. Any type that implements the methods defined by an interface is considered to
+satisfy that interface.</pre>
+
+## Testing
+
+### commands
+
+- testing a file
+
+    ```sh
+    go test -cover -race -v <filename>
+    ```
+
+- testing a testcase
+
+    ```sh
+    go test -cover -race -v -run <testcase>
+    ```
+
+  - `-cover` gives the code coverage
+  - `-race` provides the information of race condition
+  - `-v` give the verbose (detailed) information

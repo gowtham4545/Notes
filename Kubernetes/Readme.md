@@ -166,6 +166,8 @@ spec:
 
 **Types:** *ClusterIP, NodePort, LoadBalancer*
 
+*Explained about **Services** in detail [Here](https://www.zippyops.com/kubernetes-services-explained)*
+
 ![](./architecture.png)
 
 ![](./structure.png)
