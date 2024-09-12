@@ -208,7 +208,7 @@ CMD ["./main"]
 
 ## Docker Compose
 
-<pre>Docker Compose is a tool for defining and running multi-container applications. It is the key to unlocking a streamlined<br>and efficient development and deployment experience.</pre>
+<pre>Docker Compose is a tool for defining and running multi-container applications. It is the key to unlock a streamlined<br>and efficient development and deployment experience.</pre>
 
 <!-- ![](./uses.png,"uses") -->
 ![](./uses.png)

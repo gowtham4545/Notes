@@ -50,7 +50,7 @@ Here's a breakdown:</pre>
 
 - **Struct Inclusion:** *You include one struct within another as an attribute, which can be named or unnamed.*
 - **Shared Methods:** *Methods of the included struct appear as though they are part of the containing struct, allowing shared behavior.*
-- **Common Patterns:** Useful for common patterns across multiple structs, like audit logic in database tables.
+- **Common Patterns:** *Useful for common patterns across multiple structs, like audit logic in database tables.*
 
 ```go
 type animal struct{
