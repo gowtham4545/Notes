@@ -13,6 +13,7 @@ class Animal{
     ~Animal();  // destructor
 }
 ```
+
 <hr>
 
 #### Explicit conversion
@@ -39,12 +40,10 @@ View more about this [here](./smart_pointer.md)
 
 <pre>
 [ capture clause ] (parameters) -> return-type  
-{   
-   definition of method   
-} 
+{
+   definition of method
+}
 </pre>
-
-
 
 ```cpp
 int main(){
@@ -60,6 +59,7 @@ int main(){
 #### Constants
 
 `const` and `constexpr` both are used for declaring constant variables. But `const` keyword is not completely pure constant.
+
 ```cpp
 int getRandomNo()
 {
@@ -74,6 +74,7 @@ int main()
     return 0;
 }
 ```
+
 **Explanation**:
 Value of varB would not anymore compile time. While statement with varC will throw compilation error. The reason is constexpr will always accept a strictly compile-time value.
 
@@ -130,6 +131,7 @@ int main(){
 ```
 
 Output:
+
 ```bash
 The value is 5
 ```
@@ -139,7 +141,7 @@ The value is 5
 #### Concurrency
 
 - **Sleeping**
-    
+
     ```cpp
     // in windows
     #include<windows.h>
@@ -160,7 +162,7 @@ The value is 5
     ```
 
 - **Threading**
-    
+
     ```cpp
     #include<thread>
     using thread;
@@ -182,7 +184,7 @@ The value is 5
     ```
 
 - **Chrono**
-    
+
     ```cpp
     #include<chrono>
     using std::chrono;
@@ -192,9 +194,9 @@ The value is 5
         return 0;
     }
     ```
-        
+
 - **Mutex**
-    
+
     ```cpp
     #include<mutex>
 
@@ -205,15 +207,14 @@ The value is 5
         return 0;
     }
     ```
-    
+
     other things to explore : [async](), [atomic variables](), [producer-consumer](), etc..
 
 <hr>
 
 #### Name Mangling
 
-Since C++ supports function overloading, additional information has to be added to function names (called **Name mangling**) to avoid conflicts in binary code. 
-
+Since C++ supports function overloading, additional information has to be added to function names (called **Name mangling**) to avoid conflicts in binary code.
 
 ```cpp
 int f(void) { return 1; }
@@ -225,7 +226,6 @@ void g(void) { int i = f(), j = f(0); }
 
 Some C++ compilers may mangle the above names to the following,  
 
-
 ```cpp
 int __f_v(void) { return 1; }
  
@@ -234,12 +234,10 @@ int __f_i(int) { return 0; }
 void __g_v(void) { int i = __f_v(), j = __f_i(0); }
 ```
 
-
 <br>
 <br>
 
 ##### **Handling C symbols when linking from C++**
-
 
 <pre>
 Note: C does not support function overloading, So, when we link a C code in C++, we have to make sure that name of a symbol is not changed.
@@ -256,7 +254,6 @@ int main()
     return 0;
 }
 ```
-
 
 <pre>
 Compiler Error:
@@ -282,7 +279,6 @@ int main()
 
 Therefore, all C style header files (stdio.h, string.h, etc) have their declarations in the extern “C” block.
 
-
 ```cpp
 #ifdef __cplusplus
 extern "C" {
@@ -295,4 +291,21 @@ extern "C" {
 ```
 
 #### [GDB Debugger](gdb.md)
+
 The GNU Debugger (GDB) is a popular, free, and open-source debugger for C and C++ programs, which is widely used in Unix-like systems
+
+### Cpp Hacks
+
+#### Fast I/O
+
+<!-- [![](https://img.youtube.com/vi/SrQMvtJIXsQ/default.jpg)](https://www.youtube.com/watch?v=SrQMvtJIXsQ) -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SrQMvtJIXsQ" title="Fast IO | C++ Productivity Hacks | GeeksforGeeks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+```cpp
+auto init = []() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 'c';
+}();
+```
