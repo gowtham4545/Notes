@@ -121,6 +121,18 @@ git checkout -f
 git restore --staged -- <filename>
 ```
 
++ git generate patch/changes
+
+    ```bash
+    git diff > changes.patch
+    ```
+
++ apply the diff
+
+    ```bash
+    git apply changes.patch
+    ```
+
 ### Remote
 
 It is the remote repository where your files are stored with git. (Like github or gitlab)
