@@ -223,4 +223,4 @@ git pull
 
 *A CheatSheet published by **Digital Ocean** on a **HacktoberFest** Event.*
 
-<iframe width="100%" height="10%" src="./GitCheatSheet.pdf"></iframe>
+[Find it Here](./GitCheatSheet.pdf)
