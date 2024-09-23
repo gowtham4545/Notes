@@ -298,7 +298,7 @@ The GNU Debugger (GDB) is a popular, free, and open-source debugger for C and C+
 
 #### Fast I/O
 
-[![](https://img.youtube.com/vi/SrQMvtJIXsQ/default.jpg)](https://www.youtube.com/watch?v=SrQMvtJIXsQ)
+[![](https://img.youtube.com/vi/SrQMvtJIXsQ/mqdefault.jpg)](https://www.youtube.com/watch?v=SrQMvtJIXsQ)
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/SrQMvtJIXsQ" title="Fast IO | C++ Productivity Hacks | GeeksforGeeks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 
 ```cpp
