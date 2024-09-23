@@ -217,3 +217,10 @@ git pull
     ```
 
     *The git reset command permanently takes you back to a certain point in development. All the files and changes added after that point in time are unstaged if you want to re-add them.*
+
+
+## Cheat Sheet
+
+*A CheatSheet published by **Digital Ocean** on a **HacktoberFest** Event.*
+
+<iframe width="100%" height="10%" src="./GitCheatSheet.pdf"></iframe>
