@@ -200,6 +200,18 @@ git pull
     git branch -d <name>
     ```
 
++ Setting new branch to the remote/upstream
+
+    ```bash
+    git branch --set-upstream-to=origin/<branch_name> <local_branch_name>
+    ```
+
++ Compare branches
+
+    ```bash
+    git diff <branch1>..<branch2>
+    ```
+
 ### Reverting
 
 + Revert the commits
@@ -217,7 +229,6 @@ git pull
     ```
 
     *The git reset command permanently takes you back to a certain point in development. All the files and changes added after that point in time are unstaged if you want to re-add them.*
-
 
 ## Cheat Sheet
 
