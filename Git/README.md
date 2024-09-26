@@ -103,6 +103,14 @@ git diff --staged
 git commit -a -m "message"
 ```
 
++ Hold the changes
+
+```bash
+git stash       # Hold changes
+
+git stash apply # Re-apply the changes
+```
+
 + Rename a file
 
 ```bash
