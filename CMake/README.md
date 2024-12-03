@@ -1,11 +1,11 @@
 # Cmake
 
-### Initialising
+## Initialising
 
 + CMakeLists.txt
 + Makefile
 
-### Building
+## Building
 
 ```bash
 # Build configuration setup
@@ -13,16 +13,16 @@ cmake -S <source path> -B <build path>
 ```
 
 Build directory structure:
-![](./image.png)
+![example build structure](./image.png)
 
 ```bash
 # In build folder, 
 $ make  # This command runs the makefile
 ```
 
-### Run Project
+## Run Project
 
-### CMakeLists.txt
+## CMakeLists.txt
 
 ```cmake
 cmake_minimum_required(VERSION 3.20) # Defining the minimum version of CMake required
