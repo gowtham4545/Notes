@@ -1,5 +1,10 @@
 # Networks
 
+## OSI Layers
+
+![OSI Layer](./The-7-Layer-OSI-Model.webp)
+![Data trace](./data.png)
+
 ## Traditional RPC
 
 ![RPC](https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/6718c393216df138ca4398cb_62d676c42955fd6aac1163ff_RPC%2520work.jpeg)
