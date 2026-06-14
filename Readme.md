@@ -43,3 +43,5 @@ my personal cheat sheats
 - [Catalogue](https://github.com/G33kzD3n/Catalogue)
 - [Coding Interview University](https://github.com/jwasham/coding-interview-university)
 </i>
+
+[SQL](https://drive.google.com/file/d/14M6FefySDqeMPJsZppAtQFujgt4jTWOK/view?usp=drive_link)
