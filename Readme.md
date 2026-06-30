@@ -1,16 +1,22 @@
 # Notes
 
-my personal cheat sheats
+My personal cheat sheets.
 
 ## My Blogs
 
 ### [CMake](CMake/README.md)
 
-### [Cpp Concepts](Cpp/Readme.md)
+### [C++ Concepts](Cpp/Readme.md)
 
 ### [Git](Git/README.md)
 
 ### [Markdown](Markdown/README.md)
+
+### [Networks](Networks/Readme.md)
+
+<!-- - [Linux](Networks/Linux/Readme.md) -->
+- [SDWAN](Networks/SDWan/Readme.md)
+- [VM](Networks/VM/Readme.md)
 
 ### [PWA](PWA/Readme.md)
 
@@ -33,15 +39,16 @@ my personal cheat sheats
 
 [Mozilla Web Guide](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment#getting_your_website_ready_to_publish)
 
-[System Design](Readme.md#other-links)
+**System Design**
 
 1. [Github](https://github.com/donnemartin/system-design-primer)
 2. [GFG](https://www.geeksforgeeks.org/complete-roadmap-to-learn-system-design/)
 
-[Core Subjects](Readme.md#other-links)
+**Core Subjects**
 
 - [Catalogue](https://github.com/G33kzD3n/Catalogue)
 - [Coding Interview University](https://github.com/jwasham/coding-interview-university)
-</i>
 
 [SQL](https://drive.google.com/file/d/14M6FefySDqeMPJsZppAtQFujgt4jTWOK/view?usp=drive_link)
+
+</i>
