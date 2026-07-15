@@ -6,6 +6,8 @@ Nodes, 3 types
 - internal nodes -> they do packet processing, dont take packet input
 - process nodes -> They are kind of some housekeeping works, or a background activities (daemon).
 
+![VPP Node Graph](vpp.png)
+
 **Plugin:**
 plugins are the custom nodes, which can be added wherever we want in the node graph.
 
@@ -17,6 +19,8 @@ plugins are the custom nodes, which can be added wherever we want in the node gr
 - each core can process 1 vector.
 - 1 thread = 1 core.
 - each node has to find the metadata, process it/match it, and then forward it to next node.
+
+VPP runs one **worker thread pinned per CPU core**, each polling its own set of interfaces/queues. The scaling trick: a **given session lives on exactly one thread**, and only that thread touches it.
 
 ## VPP low level architecture
 
@@ -116,3 +120,24 @@ node_dispatch(vm, node, frame):
 
 5. Dual Looping
    > Dual looping is a technique where we process two packets in parallel, instead of one at a time. This can be done by unrolling the loop and processing two packets in each iteration, which can improve performance by reducing loop overhead and increasing instruction-level parallelism.
+
+## VPP Code Understanding
+
+```c
+frame
+ ├─ n_vectors = 4
+ └─ vector args
+     [101, 102, 103, 104]   <-- buffer indices
+
+from --> [101, 102, 103, 104]
+n_left_from = 4
+```
+
+- n_left_from is a countdown of how many packets remain unprocessed in the input frame.
+- from points to the current position in the frame's vector of buffer indices (packet handles). It does not directly point to packet data; it points to u32 buffer indices.
+
+- **Types** — VPP has its own: `u8/u16/u32/u64` (unsigned ints), `i32` (signed), `f64` (double), `uword` (register-width int). `ip4_address_t` is a union you access as `.as_u32`.
+
+- **Vectors** — `foo *v = 0;` then `vec_add1(v, x)`, `vec_len(v)`, `vec_free(v)`. These are VPP's growable arrays (length stored in a hidden header before the pointer). `sm->addresses` is a vector, not a C array.
+
+- **Pools** — `pool_get(p, e)` / `pool_put(p, e)` / `pool_elt_at_index(p, i)`. A pool is a vector with a free-list, so indices stay stable even as elements are freed. Sessions live in a pool; the hash stores the index into that pool, not a pointer.

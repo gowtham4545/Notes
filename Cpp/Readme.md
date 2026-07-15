@@ -290,6 +290,67 @@ extern "C" {
 
 ```
 
+#### MACROs
+
+##### Predefining MACROs
+
+```c
+// Standard MACROs
+__FILE__     // current source filename (string)
+__LINE__     // current line number (int)
+__DATE__     // compilation date
+__TIME__     // compilation time
+__func__     // (technically a variable, not a macro, but used similarly)
+__STDC__     // 1 if standard-conforming
+__STDC_VERSION__  // e.g. 201710L for C17
+
+// Compiler-specific MACROs
+__GNUC__     // GCC version
+__linux__, __x86_64__, ...
+```
+
+##### Stringification
+
+```c
+#define STR(x) #x
+STR(hello)      // becomes  "hello"
+#define PRINT_VAR(v) printf(#v " = %d\n", v)
+PRINT_VAR(count);   // printf("count" " = %d\n", count);
+```
+
+##### Token Pasting
+
+```c
+#define MAKE_NAME(prefix, id) prefix##id
+MAKE_NAME(error_, 5)   // becomes  error_5
+```
+
+##### **X-Macros**
+
+```c
+#define foreach_var_type \
+    _ (INT, "int variable") \
+    _ (FLOAT, "float variable") \
+    _ (DOUBLE, "double variable") \
+    _ (CHAR, "char variable") \
+    _ (STRING, "string variable")
+
+typedef enum {
+#define _(sym, str) VAR_##sym_,
+    foreach_var_type
+#undef _
+} VarType;
+
+// results in: VAR_INT_, VAR_FLOAT_, VAR_DOUBLE_, VAR_CHAR_, VAR_STRING_
+
+static const char *var_type_to_string[] = {
+#define _(sym, str) str,
+    foreach_var_type
+#undef _
+};
+// results in: "int variable", "float variable", "double variable", "char variable", "string variable"
+```
+
 #### [GDB Debugger](gdb.md)
 
 The GNU Debugger (GDB) is a popular, free, and open-source debugger for C and C++ programs, which is widely used in Unix-like systems
