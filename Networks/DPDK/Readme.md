@@ -28,4 +28,6 @@ Network Platforms Group 6
 
 **DPDK Acceleration Enhancements:** Improvements made to DPDK over time, including better hardware support, optimized drivers, enhanced poll mode drivers (PMDs), and advanced features that boost performance, reduce latency, and increase efficiency in network packet processing.
 
+![DPDK Framework](dpdk.png)
+
 [Vpp Notes](./vpp.md)
